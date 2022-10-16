@@ -112,7 +112,7 @@ public class Board {
         }
     }
 
-    public boolean instert(int column, int player){
+    public boolean insert(int column, int player){
         boolean correct = true;
         if (board[0][column] == '*') {
             int j = 0;
@@ -141,4 +141,3 @@ public class Board {
         return (board[0][column]=='*');
     }
 }
-

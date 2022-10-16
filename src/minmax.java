@@ -1,5 +1,7 @@
 public class minmax {
 
+
+
     public int algorithmminimax(Board position, int depth, boolean max){
         int eval;
         if (depth==0||position.finish()){
@@ -9,7 +11,7 @@ public class minmax {
             for (int i=0;i<6;i++){
                 if (position.columnfree(i)){
                     Board child = new Board(position);
-                    child.instert(i,1);
+                    child.insert(i,1);
                     eval = algorithmminimax(child, depth-1,false);
                     if (maxev<eval){
                         maxev = eval;
@@ -22,7 +24,7 @@ public class minmax {
             for (int i=0;i<6;i++){
                 if (position.columnfree(i)){
                     Board child = new Board(position);
-                    child.instert(i,2);
+                    child.insert(i,2);
                     eval = algorithmminimax(child, depth-1,true);
                     if (minev>eval){
                         minev = eval;
@@ -50,7 +52,7 @@ public class minmax {
         for (int i=0;i<6;i++){
             if (position.columnfree(i)){
                 Board child = new Board(position);
-                child.instert(i,2);
+                child.insert(i,1);
                 eval = algorithmminimax(child, depth-1,false);
                 if (maxev<eval){
                     maxev = eval;
@@ -61,10 +63,11 @@ public class minmax {
             }
         }
         if (cdecission==10){
-            cdecission = (int)(Math. random()*10);
-            while (cdecission>6){
-                cdecission = (int)(Math. random()*10);
+            cdecission = (int)(Math.random()*10);
+            while (cdecission>=6){
+                cdecission = (int)(Math.random()*10);
             }
+
             System.out.println("I choose the column "+cdecission);
             System.out.println();
             return cdecission;
@@ -73,4 +76,7 @@ public class minmax {
         System.out.println();
         return cdecission;
     }
+
+
+
 }

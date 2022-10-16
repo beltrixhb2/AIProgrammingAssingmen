@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Board tablero = new Board();
         minmax IA = new minmax();
         Scanner input = new Scanner (System.in);
@@ -9,10 +10,10 @@ public class Main {
         tablero.printBoard();
         while (tablero.checkfinish()==0) {
             column = IA.decission(tablero);
-            if (!tablero.instert(column,1)){
+            if (!tablero.insert(column,1)){
                 System.out.println("The column "+column+" is already full, please chose other column");
                 column = input.nextInt();
-                while (!tablero.instert(column,1)){
+                while (!tablero.insert(column,1)){
                     System.out.println("The column "+column+" is already full, please chose other column");
                     column = input.nextInt();
                 }
@@ -20,10 +21,10 @@ public class Main {
             tablero.printBoard();
             if (tablero.checkfinish()==0){
                 column = input.nextInt();
-                if (!tablero.instert(column,2)){
+                if (!tablero.insert(column,2)){
                     System.out.println("The column "+column+" is already full, please chose other column");
                     column = input.nextInt();
-                    while (!tablero.instert(column,2)){
+                    while (!tablero.insert(column,2)){
                         System.out.println("The column "+column+" is already full, please chose other column");
                         column = input.nextInt();
                     }
