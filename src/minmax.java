@@ -1,4 +1,4 @@
-public class minimax {
+public class minmax {
 
     public int algorithmminimax(Board position, int depth, boolean max){
         int eval;
@@ -42,15 +42,29 @@ public class minimax {
         int maxev = -1;
         int eval;
         int depth = 3;
-        int decision;
+        int cdecission = 10;
         for (int i=0;i<6;i++){
             if (position.columnfree(i)){
                 Board child = new Board(position);
                 child.instert(i,2);
                 eval = algorithmminimax(child, depth-1,false);
                 maxev = Math.max(eval, maxev);
-
+                if (maxev==eval){
+                    cdecission = i;
+                }
             }
         }
+        if (cdecission==10){
+            cdecission = (int)(Math. random()*10);
+            while (cdecission>6){
+                cdecission = (int)(Math. random()*10);
+            }
+            System.out.println("I choose the column "+cdecission);
+            System.out.println();
+            return cdecission;
+        }
+        System.out.println("I choose the column "+cdecission);
+        System.out.println();
+        return cdecission;
     }
 }

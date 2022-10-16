@@ -3,11 +3,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Board tablero = new Board();
+        minmax IA = new minmax();
         Scanner input = new Scanner (System.in);
         int column;
         tablero.printBoard();
         while (tablero.checkfinish()==0) {
-            column = input.nextInt();
+            column = IA.decission(tablero);
             if (!tablero.instert(column,1)){
                 System.out.println("The column "+column+" is already full, please chose other column");
                 column = input.nextInt();
