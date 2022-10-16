@@ -8,14 +8,28 @@ public class Main {
         tablero.printBoard();
         while (tablero.checkfinish()==0) {
             column = input.nextInt();
-            tablero.instert(column,1);
+            if (!tablero.instert(column,1)){
+                System.out.println("The column "+column+" is already full, please chose other column");
+                column = input.nextInt();
+                while (!tablero.instert(column,1)){
+                    System.out.println("The column "+column+" is already full, please chose other column");
+                    column = input.nextInt();
+                }
+            }
             tablero.printBoard();
             if (tablero.checkfinish()==0){
                 column = input.nextInt();
-                tablero.instert(column,2);
+                if (!tablero.instert(column,2)){
+                    System.out.println("The column "+column+" is already full, please chose other column");
+                    column = input.nextInt();
+                    while (!tablero.instert(column,2)){
+                        System.out.println("The column "+column+" is already full, please chose other column");
+                        column = input.nextInt();
+                    }
+                }
                 tablero.printBoard();
             }
         }
-        System.out.println("Ha ganado el jugador " +tablero.checkfinish());
+        System.out.println("The winner is player " +tablero.checkfinish());
     }
 }
