@@ -5,24 +5,28 @@ public class minmax {
         if (depth==0||position.finish()){
             return evaluate(position);
         }else if (max){
-            int maxev = -1;
+            int maxev = 0;
             for (int i=0;i<6;i++){
                 if (position.columnfree(i)){
                     Board child = new Board(position);
                     child.instert(i,1);
                     eval = algorithmminimax(child, depth-1,false);
-                    maxev = Math.max(eval, maxev);
+                    if (maxev<eval){
+                        maxev = eval;
+                    }
                 }
             }
             return maxev;
         }else{
-            int minev = 1;
+            int minev = 0;
             for (int i=0;i<6;i++){
                 if (position.columnfree(i)){
                     Board child = new Board(position);
                     child.instert(i,2);
                     eval = algorithmminimax(child, depth-1,true);
-                    minev = Math.max(eval, minev);
+                    if (minev>eval){
+                        minev = eval;
+                    }
                 }
             }
             return minev;
@@ -39,16 +43,18 @@ public class minmax {
     }
 
     public int decission(Board position){
-        int maxev = -1;
+        int maxev = 0;
         int eval;
-        int depth = 3;
+        int depth = 6;
         int cdecission = 10;
         for (int i=0;i<6;i++){
             if (position.columnfree(i)){
                 Board child = new Board(position);
                 child.instert(i,2);
                 eval = algorithmminimax(child, depth-1,false);
-                maxev = Math.max(eval, maxev);
+                if (maxev<eval){
+                    maxev = eval;
+                }
                 if (maxev==eval){
                     cdecission = i;
                 }

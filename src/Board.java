@@ -60,20 +60,14 @@ public class Board {
                     count = 0;
                     anterior = '*';
                 }else{
-                    if (count == 0){
+                    if (board[i][j] == anterior) {
                         count++;
                         if (count == 4) {
                             finish = true;
                             winner = anterior;
                         }
                     }else {
-                            if (board[i][j] == anterior) {
-                                count++;
-                                if (count == 4) {
-                                    finish = true;
-                                    winner = anterior;
-                                }
-                            }
+                        count = 1;
                     }
                     anterior = board[i][j];
                 }
@@ -89,20 +83,14 @@ public class Board {
                         count = 0;
                         anterior = '*';
                     } else {
-                        if (count == 0) {
+                        if (board[i][j] == anterior) {
                             count++;
                             if (count == 4) {
                                 finish = true;
                                 winner = anterior;
                             }
                         } else {
-                            if (board[i][j] == anterior) {
-                                count++;
-                                if (count == 4) {
-                                    finish = true;
-                                    winner = anterior;
-                                }
-                            }
+                            count = 1;
                         }
                         anterior = board[i][j];
                     }
