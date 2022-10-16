@@ -9,7 +9,8 @@ public class Main {
         int column;
         tablero.printBoard();
         while (tablero.checkfinish()==0) {
-            column = IA.decission(tablero);
+           // column = IA.decission(tablero);
+            column = input.nextInt();
             if (!tablero.insert(column,1)){
                 System.out.println("The column "+column+" is already full, please chose other column");
                 column = input.nextInt();
@@ -33,5 +34,6 @@ public class Main {
             }
         }
         System.out.println("The winner is player " +tablero.checkfinish());
+        tablero.printBoard();
     }
 }
