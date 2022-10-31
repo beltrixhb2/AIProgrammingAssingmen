@@ -305,7 +305,10 @@ public class Board {
      * --Ally positions ocuppied in 4 positions consecutives
      * --This things are counted for both players.
      *
-     * The evaluation heristic
+     * The evaluation heuristic is :
+     * Min ocuppied positions in a possible row decrease the score while max ocuppied positions increase the score.
+     * One postion add or decrease 1, two pices in a row increase or decrease the score by 2 and so on.
+     * When 4 in a row is detected the score is automatically +-2000 depending the player, that means a win.
      *
      * @return
      */
