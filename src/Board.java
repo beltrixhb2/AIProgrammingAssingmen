@@ -298,7 +298,14 @@ public class Board {
     }
 
     /**
-     * This method
+     * This method is where we implements some kind of heuristic to or decision method for the IA
+     * We have several variables that we use to count several things:
+     * --Same pieces in a row
+     * --Ally positions + free positions , that means postions not blocked by the oponent
+     * --Ally positions ocuppied in 4 positions consecutives
+     * --This things are counted for both players.
+     *
+     * The evaluation heristic
      *
      * @return
      */
